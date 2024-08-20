@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Build Backend'){
             steps{
-                sh "cd demo && mvn clean install"
+                sh "cd demo && mvn clean install && ls target/"
             }
         }
         stage('Test Backend'){
