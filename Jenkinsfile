@@ -38,6 +38,7 @@ pipeline {
             steps{
                 script{
                   withAWS(region: 'us-east-1', credentials: 'AWS_CREDENTIALS'){
+                        sh 'pwd'
                         sh "aws s3 sync demo/target/*.jar s3://bjgomes-bucket-sdet-backend"
                         sh "echo 'aws elasticbeanstalk create-application-version --application-name myName --version-label 0.0.1 --source-bundle S3Bucket="bjgomes-bucket-sdet-backend",S3Key="*.jar"'"
                         sh "ech 'aws elasticbeanstalk update-environment --environment-name myName --version-label 0.0.1'"
