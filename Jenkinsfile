@@ -24,5 +24,10 @@ pipeline {
                 sh "cd demo && mvn clean install"
             }
         }
+        stage('Test Backend'){
+            steps{
+                sh "cd demo && mvn test"
+            }
+        }
     }
 }
